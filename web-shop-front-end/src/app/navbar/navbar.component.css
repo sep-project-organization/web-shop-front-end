@@ -7,25 +7,17 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
-    /* Svetlo siva pozadina */
 }
 
 .navbar {
     background-color: #e0e0e0;
-    /* Siva pozadina za navbar */
     padding: 15px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Lagana senka za navbar */
     position: fixed;
-    /* Fiksiranje navbar-a */
     top: 0;
-    /* Fiksira ga na vrhu */
     left: 0;
-    /* Fiksira ga sa leve strane */
     right: 0;
-    /* Fiksira ga sa desne strane */
     z-index: 1000;
-    /* Osigurava da se navbar prikazuje iznad ostalog sadržaja */
 }
 
 .container {

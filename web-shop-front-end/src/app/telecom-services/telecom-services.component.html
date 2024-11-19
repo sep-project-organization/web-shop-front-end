@@ -1,3 +1,13 @@
-<div>
-  <h1>telecom-services works!</h1>
+<div class="telecom-services-container">
+  <h2 class="section-title">Our Telecom Services</h2>
+  <div class="cards-container">
+    <div *ngFor="let service of telecomServices" class="card">
+      <h3 class="card-title">{{ service.name }}</h3>
+      <p class="card-description">{{ service.description }}</p>
+      <div class="card-footer">
+        <span class="card-price">{{ service.price | currency }}</span>
+        <button class="buy-button">Buy Service</button>
+      </div>
+    </div>
+  </div>
 </div>

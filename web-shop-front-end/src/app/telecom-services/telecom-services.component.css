@@ -1,3 +1,97 @@
-div {
-    margin-top: 200px;
-}
+/* Container for the whole section */
+.telecom-services-container {
+    max-width: 1200px;
+    margin: 100px auto 50px; /* Adjust top margin to account for navbar */
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  /* Section title styling */
+  .section-title {
+    color: #3498db;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Cards container */
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Individual card styling */
+  .card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Card hover effect */
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card title styling */
+  .card-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Card description styling */
+  .card-description {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Card footer: price and button container */
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+  
+  /* Price styling */
+  .card-price {
+    color: #3498db;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Buy button styling */
+  .buy-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .buy-button:hover {
+    background-color: #2874a6;
+  }
+  

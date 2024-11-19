@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    /* Svetlo siva pozadina */
+}
+
+.navbar {
+    background-color: #e0e0e0;
+    /* Siva pozadina za navbar */
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Lagana senka za navbar */
+    position: fixed;
+    /* Fiksiranje navbar-a */
+    top: 0;
+    /* Fiksira ga na vrhu */
+    left: 0;
+    /* Fiksira ga sa leve strane */
+    right: 0;
+    /* Fiksira ga sa desne strane */
+    z-index: 1000;
+    /* Osigurava da se navbar prikazuje iznad ostalog sadržaja */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    /* Povećana visina slike logoa */
+    margin-right: 10px;
+    /* Razmak između slike i teksta */
+}
+
+.logo h1 {
+    color: #3498db;
+    /* Plava boja */
+    font-size: 26px;
+    /* Povećana veličina teksta logoa */
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    /* Pomera navigacione linkove na desnu stranu */
+}
+
+.nav-links li {
+    margin-left: 15px;
+}
+
+.nav-links a,
+.nav-links-item {
+    text-decoration: none;
+    color: #3498db;
+    /* Plava boja */
+    padding: 8px 15px;
+    /* Malo više paddinga za bolje dimenzioniranje dugmeta */
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    /* Dodata tranzicija za boju */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    /* Preuzima font iz roditeljskog elementa */
+    font-family: 'Poppins', sans-serif;
+    /* Novi font */
+}
+
+.nav-links a:hover,
+.nav-links-item:hover {
+    background-color: #3498db;
+    /* Plava boja pri hover-u */
+    color: white;
+    /* Bela boja teksta pri hover-u */
+}
+
+.content {
+    padding: 0;
+    text-align: center;
+    /*margin-top: 80px; /* Dodaj margine da se sadržaj ne preklapa sa navbar-om */
+}
+
+h2 {
+    color: #333;
+    /* Tamna boja za naslov */
+    font-size: 28px;
+    /*margin-bottom: 20px;*/
+}
+
+p {
+    color: #555;
+    /* Srednje tamna boja za tekst */
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    /* Poboljšana čitljivost za duže pasuse */
+}
+
+/* Additional links styling */
+.additional-links a {
+    color: #1e90ff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}

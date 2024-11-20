@@ -8,6 +8,10 @@
                 <li>
                     <button class="nav-links-item" (click)="homepage()">Početna stranica</button>
                 </li>
+
+                <li *ngIf="isLoggedIn()">
+                    <button class="nav-links-item" (click)="logout()">Logout</button>
+                </li>
             </ul>
         </div>
     </nav>

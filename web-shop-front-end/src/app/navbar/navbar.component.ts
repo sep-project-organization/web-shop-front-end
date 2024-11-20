@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { LocalStorageService } from '../service/local-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,8 +8,20 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-      
-  public homepage() {
+   
+  constructor(
+    private router: Router,
+    private localStorageService: LocalStorageService 
+  ) {}
 
-      }
+  logout(): void {
+    this.localStorageService.removeToken(); 
+    this.router.navigate(['/login']); 
+  }
+
+  isLoggedIn(): boolean {
+    return this.localStorageService.getToken() !== null;  
+  }
+      
+  public homepage() {}
 }

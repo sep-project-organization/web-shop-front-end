@@ -13,7 +13,6 @@ export class ManagePaymentMethodsComponent implements OnInit {
   availablePaymentMethods: PaymentMethod[] = [];
   supportedPaymentMethods: PaymentMethod[] = [];
 
-  // Sadržaj akcija za svaku metodu - koristi se za praćenje dodavanja ili uklanjanja
   paymentMethodActions: UpdatedPaymentMethods[] = [];
 
   constructor(private paymentMethodsService: PaymentMethodsService) { }
@@ -23,7 +22,6 @@ export class ManagePaymentMethodsComponent implements OnInit {
   }
 
   loadPaymentMethods() {
-    // Učitaj dostupne metode
     this.paymentMethodsService.getAllAvailablePaymentMethods().subscribe(
       (response: any) => {
         console.log(response);
@@ -37,7 +35,6 @@ export class ManagePaymentMethodsComponent implements OnInit {
   }
 
   loadSupportedPaymentMethods() {
-    // Učitaj podržane metode
     this.paymentMethodsService.getAllSupportedPaymentMethods().subscribe(
       (response: any) => {
         console.log(response);
@@ -87,7 +84,6 @@ export class ManagePaymentMethodsComponent implements OnInit {
     this.supportedPaymentMethods = this.supportedPaymentMethods.filter(m => m.code !== method.code);
   }
 
-  // Pomoćna funkcija koja proverava da li je metoda već odabrana
   isMethodSelected(method: PaymentMethod): boolean {
     return this.supportedPaymentMethods.some(m => m.code === method.code);
   }

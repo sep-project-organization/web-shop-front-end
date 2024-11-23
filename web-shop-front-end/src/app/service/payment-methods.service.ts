@@ -23,7 +23,6 @@ export class PaymentMethodsService {
 
     //todo: videti ovo za povratne vrednosti da se regulise
     saveUpdatedPaymentMethods(updatedMethods: UpdatedPaymentMethods[]): Observable<PaymentMethod[]> {
-        const url = `${this.apiUrl}`; 
-        return this.http.post<PaymentMethod[]>(url, updatedMethods);
+        return this.http.post<PaymentMethod[]>(`${this.apiUrl}`, updatedMethods);
     }
 }

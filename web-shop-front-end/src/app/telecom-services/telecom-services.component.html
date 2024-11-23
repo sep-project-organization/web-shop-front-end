@@ -6,8 +6,15 @@
       <p class="card-description">{{ service.description }}</p>
       <div class="card-footer">
         <span class="card-price">{{ service.price | currency }}</span>
-        <button class="buy-button">Buy Service</button>
+        <button class="buy-button" (click)="onBuyService(service)">Buy Service</button>
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="showPaymentModal">
+  <app-payment-method-modal
+    [paymentMethods]="paymentMethods"
+    (selectedPaymentMethod)="onPaymentMethodSelected($event)">
+  </app-payment-method-modal>
 </div>

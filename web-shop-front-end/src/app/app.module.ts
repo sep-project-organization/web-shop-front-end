@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './service/auth-interceptor.service';
 import { ManagePaymentMethodsComponent } from './manage-payment-methods/manage-payment-methods.component';
 import { MatIconModule } from '@angular/material/icon';
+import { PaymentMethodModalComponent } from './payment-method-modal/payment-method-modal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatIconModule } from '@angular/material/icon';
     NavbarComponent,
     TelecomServicesComponent,
     LoginPageComponent,
-    ManagePaymentMethodsComponent
+    ManagePaymentMethodsComponent,
+    PaymentMethodModalComponent
   ],
   imports: [
     BrowserModule,

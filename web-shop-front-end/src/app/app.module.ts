@@ -10,6 +10,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './service/auth-interceptor.service';
+import { ManagePaymentMethodsComponent } from './manage-payment-methods/manage-payment-methods.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,15 @@ import { AuthInterceptor } from './service/auth-interceptor.service';
     HomepageComponent,
     NavbarComponent,
     TelecomServicesComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ManagePaymentMethodsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule, 
+    MatIconModule
   ],
  providers: [
     {

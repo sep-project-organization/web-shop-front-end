@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "../env/environment";
 import { HttpClient } from "@angular/common/http";
+import { PurchaseRequest } from "../model/purchase-request.model";
+import { PurchaseResponse } from "../model/purchase-response.model";
 
 @Injectable({
     providedIn: 'root',
@@ -11,7 +13,7 @@ export class PaymentService {
 
     constructor(private http: HttpClient) {}
 
-    submitPayment(paymentType: string): Observable<string> {
-        return this.http.post<string>(`${this.apiUrl}`, paymentType);
+    submitPayment(purchaseRequest: PurchaseRequest): Observable<PurchaseResponse> {
+        return this.http.post<PurchaseResponse>(`${this.apiUrl}`, purchaseRequest);
     }
 }

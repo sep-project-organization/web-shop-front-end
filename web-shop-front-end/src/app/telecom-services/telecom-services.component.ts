@@ -17,6 +17,8 @@ export class TelecomServicesComponent implements OnInit {
 
   selectedPaymentMethod: PaymentMethod | null = null; 
 
+  selectedTelecomService: TelecomService | undefined;
+
   constructor(
     private telecomServiceService: TelecomServiceService,
     private paymentMethodService: PaymentMethodsService,
@@ -41,6 +43,7 @@ export class TelecomServicesComponent implements OnInit {
   onBuyService(telecomService: TelecomService): void {
     this.loadPaymentMethods();  
     this.showPaymentModal = true;
+    this.selectedTelecomService = telecomService;
   }
 
   loadPaymentMethods(): void {
@@ -69,7 +72,13 @@ export class TelecomServicesComponent implements OnInit {
     if (this.selectedPaymentMethod) {
       console.log('Processing payment for', this.selectedPaymentMethod);
 
-      this.paymentService.submitPayment(this.selectedPaymentMethod.code).subscribe(
+      if (this.selectedPaymentMethod && this.selectedTelecomService) {
+      const purchaseRequest = {
+        paymentType: this.selectedPaymentMethod.code,
+        amount: this.selectedTelecomService?.price
+      }
+
+      this.paymentService.submitPayment(purchaseRequest).subscribe(
         (response) => {
           console.log(response);
           console.log('Payment processed successfully', response);
@@ -78,7 +87,9 @@ export class TelecomServicesComponent implements OnInit {
           console.error('Error processing payment', error);
         }
       );
-    } else {
+    } 
+  }
+  else {
       console.log('No payment method selected');
     }
   }
@@ -86,5 +97,7 @@ export class TelecomServicesComponent implements OnInit {
   closeModal(): void {
     document.body.classList.remove('modal-open');
     this.showPaymentModal = false;  
+    this.selectedTelecomService = undefined; 
+    this.selectedPaymentMethod = null;  
   }
 }

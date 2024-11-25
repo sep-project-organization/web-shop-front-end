@@ -82,6 +82,7 @@ export class TelecomServicesComponent implements OnInit {
         (response) => {
           console.log(response);
           console.log('Payment processed successfully', response);
+          window.location.href = response.paymentUrl;
         },
         (error) => {
           console.error('Error processing payment', error);

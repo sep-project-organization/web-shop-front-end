@@ -4,6 +4,8 @@ import { TelecomServiceService } from '../service/telecom-service.service';
 import { PaymentMethod } from '../model/payment-method.model';
 import { PaymentMethodsService } from '../service/payment-methods.service';
 import { PaymentService } from '../service/payment.service';
+import { P } from '@angular/cdk/keycodes';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-telecom-services',
@@ -22,7 +24,8 @@ export class TelecomServicesComponent implements OnInit {
   constructor(
     private telecomServiceService: TelecomServiceService,
     private paymentMethodService: PaymentMethodsService,
-    private paymentService: PaymentService
+    private paymentService: PaymentService,
+    private toastr: ToastrService 
   ) {}
 
   ngOnInit(): void {
@@ -82,7 +85,12 @@ export class TelecomServicesComponent implements OnInit {
         (response) => {
           console.log(response);
           console.log('Payment processed successfully', response);
-          window.location.href = response.paymentUrl;
+          if (response.paymentUrl !== null && response.paymentUrl !== "") {
+            window.location.href = response.paymentUrl;
+          }
+          else {
+              this.toastr.success(response.message); 
+          }
         },
         (error) => {
           console.error('Error processing payment', error);

@@ -13,6 +13,8 @@ import { AuthInterceptor } from './service/auth-interceptor.service';
 import { ManagePaymentMethodsComponent } from './manage-payment-methods/manage-payment-methods.component';
 import { MatIconModule } from '@angular/material/icon';
 import { PaymentMethodModalComponent } from './payment-method-modal/payment-method-modal.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,15 @@ import { PaymentMethodModalComponent } from './payment-method-modal/payment-meth
     AppRoutingModule,
     HttpClientModule,
     FormsModule, 
-    MatIconModule
+    MatIconModule,
+    ToastrModule.forRoot({
+        positionClass: 'toast-center-center',
+        timeOut: 3000, 
+        closeButton: true,
+        progressBar: true,
+        preventDuplicates: true
+      }),
+   BrowserAnimationsModule
   ],
  providers: [
     {

@@ -13,6 +13,10 @@ import { AuthInterceptor } from './service/auth-interceptor.service';
 import { ManagePaymentMethodsComponent } from './manage-payment-methods/manage-payment-methods.component';
 import { MatIconModule } from '@angular/material/icon';
 import { PaymentMethodModalComponent } from './payment-method-modal/payment-method-modal.component';
+import { SuccessComponent } from './success/success.component';
+import { FaildComponent } from './faild/faild.component';
+import { ErrorComponent } from './error/error.component';
+import { FailedComponent } from './failed/failed.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { PaymentMethodModalComponent } from './payment-method-modal/payment-meth
     TelecomServicesComponent,
     LoginPageComponent,
     ManagePaymentMethodsComponent,
-    PaymentMethodModalComponent
+    PaymentMethodModalComponent,
+    SuccessComponent,
+    FaildComponent,
+    ErrorComponent,
+    FailedComponent
   ],
   imports: [
     BrowserModule,

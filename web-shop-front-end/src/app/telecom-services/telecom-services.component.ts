@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, resolveForwardRef } from '@angular/core';
 import { TelecomService } from '../model/telecom-service.model';
 import { TelecomServiceService } from '../service/telecom-service.service';
 import { PaymentMethod } from '../model/payment-method.model';
@@ -82,6 +82,10 @@ export class TelecomServicesComponent implements OnInit {
         (response) => {
           console.log(response);
           console.log('Payment processed successfully', response);
+          if (response.redirectionUrl !== null) {
+            window.location.href = response.redirectionUrl
+            return;
+          } 
           window.location.href = response.paymentUrl;
         },
         (error) => {

@@ -1,0 +1,49 @@
+/* Globalna stilizacija */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: #333;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #007BFF;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+  
+  a:hover {
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
+  .container {
+    background-color: #fff;
+    padding: 30px 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+  }
+  

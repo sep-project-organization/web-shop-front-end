@@ -5,4 +5,5 @@ export interface PurchaseResponse{
     paymentId: string;
     port: string;
     merchantPan: string;
+    redirectionUrl: string;
 }

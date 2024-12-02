@@ -82,8 +82,8 @@ export class TelecomServicesComponent implements OnInit {
         (response) => {
           console.log(response);
           console.log('Payment processed successfully', response);
-          if (response.redirectionUrl !== null) {
-            window.location.href = response.redirectionUrl
+          if (response.paymentUrl !== null) {
+            window.location.href = response.paymentUrl
             return;
           } 
           window.location.href = response.paymentUrl;

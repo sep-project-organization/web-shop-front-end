@@ -14,7 +14,6 @@ import { ManagePaymentMethodsComponent } from './manage-payment-methods/manage-p
 import { MatIconModule } from '@angular/material/icon';
 import { PaymentMethodModalComponent } from './payment-method-modal/payment-method-modal.component';
 import { SuccessComponent } from './success/success.component';
-import { FaildComponent } from './faild/faild.component';
 import { ErrorComponent } from './error/error.component';
 import { FailedComponent } from './failed/failed.component';
 
@@ -28,7 +27,6 @@ import { FailedComponent } from './failed/failed.component';
     ManagePaymentMethodsComponent,
     PaymentMethodModalComponent,
     SuccessComponent,
-    FaildComponent,
     ErrorComponent,
     FailedComponent
   ],

@@ -4,6 +4,7 @@ import { environment } from "../env/environment";
 import { HttpClient } from "@angular/common/http";
 import { PurchaseRequest } from "../model/purchase-request.model";
 import { PurchaseResponse } from "../model/purchase-response.model";
+import { OneDto } from "../model/one-dto.model";
 
 @Injectable({
     providedIn: 'root',
@@ -13,7 +14,7 @@ export class PaymentService {
 
     constructor(private http: HttpClient) {}
 
-    submitPayment(purchaseRequest: PurchaseRequest): Observable<PurchaseResponse> {
-        return this.http.post<PurchaseResponse>(`${this.apiUrl}`, purchaseRequest);
+    submitPayment(purchaseRequest: PurchaseRequest): Observable<OneDto> {
+        return this.http.post<OneDto>(`${this.apiUrl}`, purchaseRequest);
     }
 }

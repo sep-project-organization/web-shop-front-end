@@ -7,7 +7,6 @@ import { ManagePaymentMethodsComponent } from './manage-payment-methods/manage-p
 import { SuccessComponent } from './success/success.component';
 import { ErrorComponent } from './error/error.component';
 import { FailedComponent } from './failed/failed.component';
-import { FaildComponent } from './faild/faild.component';
 
 const routes: Routes = [
     {path:'', component: HomepageComponent},
@@ -16,8 +15,7 @@ const routes: Routes = [
     {path:'manage-payment-methods', component: ManagePaymentMethodsComponent},
     { path: 'success', component: SuccessComponent },
     { path: 'failed', component: FailedComponent },
-    { path: 'error', component: ErrorComponent },
-    { path: 'falid', component: FaildComponent },
+    { path: 'error', component: ErrorComponent }
 ];
 
 @NgModule({

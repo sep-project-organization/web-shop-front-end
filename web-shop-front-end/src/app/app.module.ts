@@ -16,6 +16,9 @@ import { PaymentMethodModalComponent } from './payment-method-modal/payment-meth
 import { SuccessComponent } from './success/success.component';
 import { ErrorComponent } from './error/error.component';
 import { FailedComponent } from './failed/failed.component';
+import { WebSocketService } from './service/web-socket.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -28,22 +31,25 @@ import { FailedComponent } from './failed/failed.component';
     PaymentMethodModalComponent,
     SuccessComponent,
     ErrorComponent,
-    FailedComponent
+    FailedComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule, 
-    MatIconModule
+    FormsModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
- providers: [
+  providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
-    }
-  ],  
-  bootstrap: [AppComponent]
+      multi: true,
+    },
+    WebSocketService,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

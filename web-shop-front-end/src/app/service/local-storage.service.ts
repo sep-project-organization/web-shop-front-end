@@ -28,4 +28,21 @@ export class LocalStorageService {
         }
         return headers;
     }
+
+    public getUsernameFromToken(): string | null {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+        return null;
+    }
+
+    const payload = token.split('.')[1];
+    if (!payload) {
+        return null;
+    }
+
+    const decodedPayload = atob(payload);
+    const parsedPayload = JSON.parse(decodedPayload);
+
+    return parsedPayload.username;
+}
 }

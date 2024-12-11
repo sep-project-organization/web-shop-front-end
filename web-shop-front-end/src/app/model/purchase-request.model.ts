@@ -1,4 +1,5 @@
-export interface PurchaseRequest{
-    paymentType: string,
-    amount: number;
+export interface PurchaseRequest {
+  paymentType: string;
+  amount: number;
+  telecomServiceId: string;
 }

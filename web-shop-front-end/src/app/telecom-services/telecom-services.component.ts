@@ -8,14 +8,14 @@ import { PaymentService } from '../service/payment.service';
 @Component({
   selector: 'app-telecom-services',
   templateUrl: './telecom-services.component.html',
-  styleUrls: ['./telecom-services.component.css']
+  styleUrls: ['./telecom-services.component.css'],
 })
 export class TelecomServicesComponent implements OnInit {
   telecomServices: TelecomService[] = [];
   paymentMethods: PaymentMethod[] = [];
-  showPaymentModal: boolean = false;  
+  showPaymentModal: boolean = false;
 
-  selectedPaymentMethod: PaymentMethod | null = null; 
+  selectedPaymentMethod: PaymentMethod | null = null;
 
   selectedTelecomService: TelecomService | undefined;
 
@@ -41,7 +41,7 @@ export class TelecomServicesComponent implements OnInit {
   }
 
   onBuyService(telecomService: TelecomService): void {
-    this.loadPaymentMethods();  
+    this.loadPaymentMethods();
     this.showPaymentModal = true;
     this.selectedTelecomService = telecomService;
   }
@@ -65,7 +65,7 @@ export class TelecomServicesComponent implements OnInit {
     } else {
       console.log('No payment method selected');
     }
-    this.closeModal(); 
+    this.closeModal();
   }
 
   submitPayment(): void {
@@ -73,36 +73,43 @@ export class TelecomServicesComponent implements OnInit {
       console.log('Processing payment for', this.selectedPaymentMethod);
 
       if (this.selectedPaymentMethod && this.selectedTelecomService) {
-      const purchaseRequest = {
-        paymentType: this.selectedPaymentMethod.code,
-        amount: this.selectedTelecomService?.price
-      }
+        const purchaseRequest = {
+          paymentType: this.selectedPaymentMethod.code,
+          amount: this.selectedTelecomService?.price,
+          telecomServiceId: this.selectedTelecomService.id!,
+        };
 
-      this.paymentService.submitPayment(purchaseRequest).subscribe(
-        (response) => {
-          console.log(response);
-          console.log('Payment processed successfully', response);
-          if (response.paymentUrl !== null) {
-            window.location.href = response.paymentUrl
-            return;
-          } 
-          window.location.href = response.paymentUrl;
-        },
-        (error) => {
-          console.error('Error processing payment', error);
-        }
-      );
-    } 
-  }
-  else {
+        this.paymentService.submitPayment(purchaseRequest).subscribe(
+          (response) => {
+            console.log(response);
+            console.log('Payment processed successfully', response);
+            if (
+              response.paymentUrl !== null &&
+              purchaseRequest.paymentType === 'LC'
+            ) {
+              window.open(response.paymentUrl, '_blank');
+              return;
+            }
+            if (response.paymentUrl !== null) {
+              window.location.href = response.paymentUrl;
+              return;
+            }
+            window.location.href = response.paymentUrl;
+          },
+          (error) => {
+            console.error('Error processing payment', error);
+          }
+        );
+      }
+    } else {
       console.log('No payment method selected');
     }
   }
 
   closeModal(): void {
     document.body.classList.remove('modal-open');
-    this.showPaymentModal = false;  
-    this.selectedTelecomService = undefined; 
-    this.selectedPaymentMethod = null;  
+    this.showPaymentModal = false;
+    this.selectedTelecomService = undefined;
+    this.selectedPaymentMethod = null;
   }
 }

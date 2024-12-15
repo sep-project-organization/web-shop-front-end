@@ -4,6 +4,7 @@ import { TelecomServiceService } from '../service/telecom-service.service';
 import { PaymentMethod } from '../model/payment-method.model';
 import { PaymentMethodsService } from '../service/payment-methods.service';
 import { PaymentService } from '../service/payment.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-telecom-services',
@@ -22,7 +23,8 @@ export class TelecomServicesComponent implements OnInit {
   constructor(
     private telecomServiceService: TelecomServiceService,
     private paymentMethodService: PaymentMethodsService,
-    private paymentService: PaymentService
+    private paymentService: PaymentService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -90,11 +92,18 @@ export class TelecomServicesComponent implements OnInit {
               window.open(response.paymentUrl, '_blank');
               return;
             }
+            if (response.paymentUrl === "") {
+              this.toastr.info(response.message, 'Alert', {
+                timeOut: 5000,
+                positionClass: 'toast-container',
+              });            
+              return;
+            }
             if (response.paymentUrl !== null) {
               window.location.href = response.paymentUrl;
               return;
             }
-            window.location.href = response.paymentUrl;
+            //window.location.href = response.paymentUrl;
           },
           (error) => {
             console.error('Error processing payment', error);

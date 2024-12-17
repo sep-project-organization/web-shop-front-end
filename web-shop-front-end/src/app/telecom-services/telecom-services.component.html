@@ -12,9 +12,8 @@
   </div>
 </div>
 
-<div *ngIf="showPaymentModal">
-  <app-payment-method-modal
-    [paymentMethods]="paymentMethods"
+<div *ngIf="showPaymentModal || showQRCode">
+  <app-payment-method-modal [paymentMethods]="paymentMethods" [qrCodeData]="qrCodeData" [showQRCode]="showQRCode"
     (selectedPaymentMethod)="onPaymentMethodSelected($event)">
   </app-payment-method-modal>
 </div>

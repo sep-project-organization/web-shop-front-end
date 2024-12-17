@@ -16,6 +16,9 @@ export class TelecomServicesComponent implements OnInit {
   paymentMethods: PaymentMethod[] = [];
   showPaymentModal: boolean = false;
 
+  qrCodeData: string = '';
+  showQRCode: boolean = false;
+
   selectedPaymentMethod: PaymentMethod | null = null;
 
   selectedTelecomService: TelecomService | undefined;
@@ -92,11 +95,17 @@ export class TelecomServicesComponent implements OnInit {
               window.open(response.paymentUrl, '_blank');
               return;
             }
-            if (response.paymentUrl === "") {
+            if (purchaseRequest.paymentType === 'QR' && response.qrCode) {
+              this.qrCodeData = response.qrCode;
+              this.showQRCode = true;
+              console.log('qr code data: ', this.qrCodeData);
+              return;
+            }
+            if (response.paymentUrl === '') {
               this.toastr.info(response.message, 'Alert', {
                 timeOut: 5000,
                 positionClass: 'toast-container',
-              });            
+              });
               return;
             }
             if (response.paymentUrl !== null) {
@@ -120,5 +129,12 @@ export class TelecomServicesComponent implements OnInit {
     this.showPaymentModal = false;
     this.selectedTelecomService = undefined;
     this.selectedPaymentMethod = null;
+    this.showQRCode = false;
+    this.qrCodeData = '';
+  }
+
+  closeQRModal(): void {
+    this.showQRCode = false;
+    this.qrCodeData = '';
   }
 }

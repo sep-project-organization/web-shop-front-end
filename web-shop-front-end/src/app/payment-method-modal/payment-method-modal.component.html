@@ -1,16 +1,23 @@
-<div class="modal" *ngIf="paymentMethods.length > 0">
-    <div class="modal-content">
-      <button class="close-btn" (click)="closeModal()">X</button>
-      
+<div class="modal" *ngIf="paymentMethods.length > 0 || showQRCode">
+  <div class="modal-content">
+    <button class="close-btn" (click)="closeModal()">X</button>
+
+    <div *ngIf="showQRCode">
+      <h3>Scan QR Code</h3>
+      <img [src]="qrCodeData" alt="QR Code" />
+      <button (click)="closeModal()">Close</button>
+    </div>
+
+    <div *ngIf="!showQRCode">
       <h2>Select Payment Method</h2>
-      
       <div *ngFor="let paymentMethod of paymentMethods">
         <label>
-          <input type="radio" name="paymentMethod" (change)="onSelectPaymentMethod(paymentMethod)" [checked]="selectedMethod === paymentMethod" />
+          <input type="radio" name="paymentMethod" (change)="onSelectPaymentMethod(paymentMethod)"
+            [checked]="selectedMethod === paymentMethod" />
           {{ paymentMethod.name }}
         </label>
       </div>
-  
       <button (click)="onDone()">Done</button>
     </div>
   </div>
+</div>

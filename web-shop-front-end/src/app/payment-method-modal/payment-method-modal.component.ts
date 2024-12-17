@@ -4,11 +4,13 @@ import { PaymentMethod } from '../model/payment-method.model';
 @Component({
   selector: 'app-payment-method-modal',
   templateUrl: './payment-method-modal.component.html',
-  styleUrls: ['./payment-method-modal.component.css']
+  styleUrls: ['./payment-method-modal.component.css'],
 })
 export class PaymentMethodModalComponent {
-  @Input() paymentMethods: PaymentMethod[] = [];  
-  @Output() selectedPaymentMethod = new EventEmitter<PaymentMethod | null>();  
+  @Input() paymentMethods: PaymentMethod[] = [];
+  @Output() selectedPaymentMethod = new EventEmitter<PaymentMethod | null>();
+  @Input() showQRCode: boolean = false;
+  @Input() qrCodeData: string = '';
 
   selectedMethod: PaymentMethod | null = null;
 
@@ -17,10 +19,12 @@ export class PaymentMethodModalComponent {
   }
 
   onDone(): void {
-    this.selectedPaymentMethod.emit(this.selectedMethod);  
+    this.selectedPaymentMethod.emit(this.selectedMethod);
   }
 
   closeModal(): void {
-    this.selectedPaymentMethod.emit(null);  
+    this.showQRCode = false;
+    this.qrCodeData = '';
+    this.selectedPaymentMethod.emit(null);
   }
 }

@@ -88,6 +88,13 @@ export class TelecomServicesComponent implements OnInit {
           (response) => {
             console.log(response);
             console.log('Payment processed successfully', response);
+            if (response.paymentUrl === '') {
+              this.toastr.info(response.message, 'Alert', {
+                timeOut: 5000,
+                positionClass: 'toast-container',
+              });
+              return;
+            }
             if (
               response.paymentUrl !== null &&
               purchaseRequest.paymentType === 'LC'
@@ -99,13 +106,6 @@ export class TelecomServicesComponent implements OnInit {
               this.qrCodeData = response.qrCode;
               this.showQRCode = true;
               console.log('qr code data: ', this.qrCodeData);
-              return;
-            }
-            if (response.paymentUrl === '') {
-              this.toastr.info(response.message, 'Alert', {
-                timeOut: 5000,
-                positionClass: 'toast-container',
-              });
               return;
             }
             if (response.paymentUrl !== null) {

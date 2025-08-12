@@ -5,6 +5,7 @@ import { PaymentMethod } from '../model/payment-method.model';
 import { PaymentMethodsService } from '../service/payment-methods.service';
 import { PaymentService } from '../service/payment.service';
 import { ToastrService } from 'ngx-toastr';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-telecom-services',
@@ -88,7 +89,11 @@ export class TelecomServicesComponent implements OnInit {
           (response) => {
             console.log(response);
             console.log('Payment processed successfully', response);
+            console.log('response payment url: ', response.paymentUrl);
+            console.log('response qr code: ', response.qrCode); 
+            timeout(1000);         
             if (response.paymentUrl === '') {
+              console.log('entered 1. blok');
               this.toastr.info(response.message, 'Alert', {
                 timeOut: 5000,
                 positionClass: 'toast-container',
@@ -99,16 +104,20 @@ export class TelecomServicesComponent implements OnInit {
               response.paymentUrl !== null &&
               purchaseRequest.paymentType === 'LC'
             ) {
+              console.log('entered 2. blok');
               window.open(response.paymentUrl, '_blank');
               return;
             }
             if (purchaseRequest.paymentType === 'QR' && response.qrCode) {
+              console.log('entered 3. blok');
               this.qrCodeData = response.qrCode;
               this.showQRCode = true;
               console.log('qr code data: ', this.qrCodeData);
               return;
             }
             if (response.paymentUrl !== null) {
+              console.log('entered 4. blok');
+              console.log('response: ', response.paymentUrl)
               window.location.href = response.paymentUrl;
               return;
             }

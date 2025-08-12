@@ -3,6 +3,7 @@ import { Client, Message, Stomp } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 import { LocalStorageService } from './local-storage.service';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from '../env/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class WebSocketService {
   ) {}
 
   connect(): void {
-    const socket = new SockJS('http://localhost:8081/ws');
+    const socket = new SockJS(environment.websocketUrl);
 
     this.stompClient = Stomp.over(socket);
 

@@ -68,6 +68,9 @@
         },
         "serve": {
           "options": {
+            "ssl": true,
+            "sslCert": "certs/localhost.crt",
+            "sslKey": "certs/localhost.key",
             "proxyConfig": "src/proxy.conf.json"
           },
           "builder": "@angular-devkit/build-angular:dev-server",

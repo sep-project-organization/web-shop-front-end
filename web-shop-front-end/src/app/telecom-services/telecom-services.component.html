@@ -6,7 +6,10 @@
       <p class="card-description">{{ service.description }}</p>
       <div class="card-footer">
         <span class="card-price">{{ service.price | currency }}</span>
-        <button class="buy-button" (click)="onBuyService(service)">Buy Service</button>
+        <div class="button-group">
+          <button class="buy-button" (click)="onBuyService(service)">Buy Service</button>
+          <button class="buy-button" (click)="monthlySubscription(service)">Subscribe 1 month</button>
+        </div>
       </div>
     </div>
   </div>

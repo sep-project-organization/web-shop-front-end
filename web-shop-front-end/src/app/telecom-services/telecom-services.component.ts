@@ -52,6 +52,43 @@ export class TelecomServicesComponent implements OnInit {
     this.selectedTelecomService = telecomService;
   }
 
+  monthlySubscription(telecomService: TelecomService): void {
+    this.selectedTelecomService = telecomService;
+
+    const purchaseRequest = {
+          paymentType: 'CC',
+          amount: this.selectedTelecomService?.price,
+          telecomServiceId: this.selectedTelecomService.id!,
+          monthlySubscription: true
+    };
+
+    this.paymentService.submitPayment(purchaseRequest).subscribe(
+          (response) => {
+            console.log(response);
+            console.log('Payment processed successfully', response);
+            console.log('response payment url: ', response.paymentUrl);
+            timeout(1000);         
+            if (response.paymentUrl === '') {
+              console.log('entered 1. blok');
+              this.toastr.info(response.message, 'Alert', {
+                timeOut: 5000,
+                positionClass: 'toast-container',
+              });
+              return;
+            }
+            if (response.paymentUrl !== null) {
+              console.log('entered 4. blok');
+              console.log('response: ', response.paymentUrl)
+              window.location.href = response.paymentUrl;
+              return;
+            }
+          },
+          (error) => {
+            console.error('Error processing payment', error);
+          }
+        );
+  }
+
   loadPaymentMethods(): void {
     this.paymentMethodService.getAllSupportedPaymentMethods().subscribe(
       (methods: PaymentMethod[]) => {
@@ -83,6 +120,7 @@ export class TelecomServicesComponent implements OnInit {
           paymentType: this.selectedPaymentMethod.code,
           amount: this.selectedTelecomService?.price,
           telecomServiceId: this.selectedTelecomService.id!,
+          monthlySubscription: false
         };
 
         this.paymentService.submitPayment(purchaseRequest).subscribe(

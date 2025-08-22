@@ -95,3 +95,12 @@
     background-color: #2874a6;
   }
   
+.button-group {
+  display: flex;
+  gap: 10px; 
+}
+
+.button-group .buy-button {
+  flex: 1;
+  text-align: center;
+}

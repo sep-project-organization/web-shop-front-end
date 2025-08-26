@@ -3,4 +3,5 @@ export interface TelecomService{
     name: string,
     description: string,
     price: number;
+    monthlyPrice: number
 }

@@ -39,6 +39,7 @@ export class TelecomServicesComponent implements OnInit {
     this.telecomServiceService.getAllTelecomServices().subscribe(
       (data: TelecomService[]) => {
         this.telecomServices = data;
+        console.log('loaded telecom services: ', this.telecomServices);
       },
       (error) => {
         console.error('Error fetching telecom services', error);
@@ -57,7 +58,7 @@ export class TelecomServicesComponent implements OnInit {
 
     const purchaseRequest = {
           paymentType: 'CC',
-          amount: this.selectedTelecomService?.price,
+          amount: this.selectedTelecomService?.monthlyPrice,
           telecomServiceId: this.selectedTelecomService.id!,
           monthlySubscription: true
     };

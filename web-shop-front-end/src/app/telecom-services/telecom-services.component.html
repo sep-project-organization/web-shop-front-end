@@ -1,23 +1,30 @@
-<div class="telecom-services-container">
-  <h2 class="section-title">Our Telecom Services</h2>
-  <div class="cards-container">
-    <div *ngFor="let service of telecomServices" class="card">
-      <h3 class="card-title">{{ service.name }}</h3>
-      <p class="card-description">{{ service.description }}</p>
-      <div class="card-footer">
-        <span class="card-price">{{ service.price | currency }}</span>
-        <span class="card-price">{{ service.monthlyPrice | currency }} per month</span>
-        <div class="button-group">
-          <button class="buy-button" (click)="onBuyService(service)">Buy Service</button>
-          <button class="buy-button" (click)="monthlySubscription(service)">Subscribe 1 month</button>
-        </div>
+<div class="telecom-services-section">
+  <h2 class="section-title">Our offer</h2>
+  <div class="cards-wrapper">
+    <div *ngFor="let service of telecomServices" class="service-card">
+      <div class="card-icon">
+        <i class="fa fa-signal" aria-hidden="true"></i>
+      </div>
+      <div class="card-header">
+        <h3>{{ service.name }}</h3>
+      </div>
+      <p class="description">{{ service.description }}</p>
+      <div class="card-prices">
+        <span class="price">{{ service.price | currency }}</span>
+        <span class="monthly-price">{{ service.monthlyPrice | currency }}/month</span>
+      </div>
+      <div class="card-buttons">
+        <button (click)="onBuyService(service)">Buy</button>
+        <button (click)="monthlySubscription(service)">Subscribe 1 month</button>
       </div>
     </div>
   </div>
 </div>
 
-<div *ngIf="showPaymentModal || showQRCode">
-  <app-payment-method-modal [paymentMethods]="paymentMethods" [qrCodeData]="qrCodeData" [showQRCode]="showQRCode"
-    (selectedPaymentMethod)="onPaymentMethodSelected($event)">
-  </app-payment-method-modal>
-</div>
+<app-payment-method-modal
+  *ngIf="showPaymentModal || showQRCode"
+  [paymentMethods]="paymentMethods"
+  [qrCodeData]="qrCodeData"
+  [showQRCode]="showQRCode"
+  (selectedPaymentMethod)="onPaymentMethodSelected($event)">
+</app-payment-method-modal>

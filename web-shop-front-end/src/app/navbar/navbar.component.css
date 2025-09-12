@@ -2,120 +2,73 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    font-family: 'Poppins', Arial, sans-serif;
     background-color: #f9f9f9;
-}
-
-.navbar {
-    background-color: #e0e0e0;
-    padding: 15px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar {
+    background: #A6A6A6;
+    padding: 12px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-}
-
-.container {
+  }
+  
+  .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-.logo {
+  }
+  
+  .logo {
     display: flex;
     align-items: center;
-}
-
-.logo img {
-    height: 60px;
-    /* Povećana visina slike logoa */
-    margin-right: 10px;
-    /* Razmak između slike i teksta */
-}
-
-.logo h1 {
-    color: #3498db;
-    /* Plava boja */
-    font-size: 26px;
-    /* Povećana veličina teksta logoa */
-    font-weight: bold;
-}
-
-.nav-links {
+    gap: 10px;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+  
+  .logo h1 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  
+  .nav-links {
     list-style: none;
     display: flex;
     align-items: center;
-    margin-left: auto;
-    /* Pomera navigacione linkove na desnu stranu */
-}
-
-.nav-links li {
-    margin-left: 15px;
-}
-
-.nav-links a,
-.nav-links-item {
-    text-decoration: none;
-    color: #3498db;
-    /* Plava boja */
-    padding: 8px 15px;
-    /* Malo više paddinga za bolje dimenzioniranje dugmeta */
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    /* Dodata tranzicija za boju */
-    background: none;
+    gap: 15px;
+  }
+  
+  .nav-links li {
+    display: inline-block;
+  }
+  
+  .nav-links-item {
+    background: transparent;
     border: none;
+    color: #fff;
+    padding: 6px 14px;
     cursor: pointer;
-    font: inherit;
-    /* Preuzima font iz roditeljskog elementa */
-    font-family: 'Poppins', sans-serif;
-    /* Novi font */
-}
-
-.nav-links a:hover,
-.nav-links-item:hover {
-    background-color: #3498db;
-    /* Plava boja pri hover-u */
-    color: white;
-    /* Bela boja teksta pri hover-u */
-}
-
-.content {
-    padding: 0;
-    text-align: center;
-    /*margin-top: 80px; /* Dodaj margine da se sadržaj ne preklapa sa navbar-om */
-}
-
-h2 {
-    color: #333;
-    /* Tamna boja za naslov */
-    font-size: 28px;
-    /*margin-bottom: 20px;*/
-}
-
-p {
-    color: #555;
-    /* Srednje tamna boja za tekst */
-    font-size: 18px;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.8;
-    /* Poboljšana čitljivost za duže pasuse */
-}
-
-/* Additional links styling */
-.additional-links a {
-    color: #1e90ff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease-in-out;
-    font-family: 'Poppins', sans-serif;
-}
+    font-size: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links-item:hover {
+    background-color: #fff;
+    color: #3498db;
+  }
+  

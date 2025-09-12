@@ -18,7 +18,19 @@ export class ManagePaymentMethodsComponent implements OnInit {
   constructor(private paymentMethodsService: PaymentMethodsService) { }
 
   ngOnInit(): void {
-    this.loadPaymentMethods();
+    this.availablePaymentMethods = [
+      { name: 'Visa', code: 'VISA' },
+      { name: 'Mastercard', code: 'MC' },
+      { name: 'PayPal', code: 'PAYPAL' },
+      { name: 'Apple Pay', code: 'APPLE' },
+      { name: 'Google Pay', code: 'GOOGLE' }
+    ];
+  
+    this.supportedPaymentMethods = [
+      { name: 'Visa', code: 'VISA' },
+      { name: 'PayPal', code: 'PAYPAL' }
+    ];
+    //this.loadPaymentMethods();
   }
 
   loadPaymentMethods() {

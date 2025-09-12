@@ -1,27 +1,29 @@
 <div class="content">
-  <h2>Manage Payment Methods</h2>
+  <h2>💳 Manage payment methods</h2>
 
-  <table class="payment-methods-table">
-    <thead>
-      <tr>
-        <th>Payment Method</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let method of availablePaymentMethods">
-        <td>{{ method.name }}</td>
-        <td>
-          <button (click)="togglePaymentMethod(method)" 
-                  [ngClass]="{'add-btn': !isMethodSelected(method), 'delete-btn': isMethodSelected(method)}">
-            {{ isMethodSelected(method) ? 'Remove' : 'Add' }}
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="payment-methods-table">
+      <thead>
+        <tr>
+          <th>Payment method</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let method of availablePaymentMethods">
+          <td>{{ method.name }}</td>
+          <td>
+            <button (click)="togglePaymentMethod(method)" 
+                    [ngClass]="{'add-btn': !isMethodSelected(method), 'delete-btn': isMethodSelected(method)}">
+              {{ isMethodSelected(method) ? 'Remove' : 'Add' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="action-btn">
-    <button (click)="saveChanges()" class="save-btn">Save Changes</button>
+    <button (click)="saveChanges()" class="save-btn">💾 Save changes</button>
   </div>
 </div>

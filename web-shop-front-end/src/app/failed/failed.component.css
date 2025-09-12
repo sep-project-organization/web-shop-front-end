@@ -1,15 +1,9 @@
-body {
-  margin: 0;
-  padding: 0;
+.page-wrapper {
   display: flex;
-  justify-content: center;
-  /* Centriranje horizontalno */
-  align-items: center;
-  /* Centriranje vertikalno */
-  height: 100vh;
-  /* Visina stranice */
+  justify-content: center;   
+  align-items: center;      
+  height: 100vh;          
   background-color: #f9f9f9;
-  /* Pozadinska boja */
 }
 
 .container {
@@ -20,9 +14,7 @@ body {
   text-align: center;
   max-width: 600px;
   width: 100%;
-  /* Responsivnost */
-  margin-top: 200px;
-    margin-left: 600px;
+  border-top: 5px solid red;
 }
 
 h1 {

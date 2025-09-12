@@ -1,30 +1,53 @@
-<div class="content">
-    <h2>Login to Your Account</h2>
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+<div class="login-wrapper">
+    <div class="login-card">
+      <h2>Welcome back 👋</h2>
+      <p class="subtitle">Login to continue</p>
+  
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
         <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" [(ngModel)]="loginData.username" #username="ngModel"
-                required />
-            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="error-message">
-                Username is required.
-            </div>
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            [(ngModel)]="loginData.username"
+            #username="ngModel"
+            required
+          />
+          <div
+            *ngIf="username.invalid && (username.dirty || username.touched)"
+            class="error-message"
+          >
+            Username is required.
+          </div>
         </div>
-
+  
         <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" [(ngModel)]="loginData.password" #password="ngModel"
-                required />
-            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
-                Password is required.
-            </div>
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="loginData.password"
+            #password="ngModel"
+            required
+          />
+          <div
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="error-message"
+          >
+            Password is required.
+          </div>
         </div>
-
+  
         <button type="submit" [disabled]="loginForm.invalid">Login</button>
-    </form>
-
-    <div class="additional-links">
-        <p>
-            <a href="#">Forgot password?</a> | <a href="#">Create an account</a>
-        </p>
+      </form>
+  
+      <div class="additional-links">
+        <a href="#">Forgot password?</a>
+        <span>|</span>
+        <a href="#">Create an account</a>
+      </div>
     </div>
-</div>
+  </div>
+  

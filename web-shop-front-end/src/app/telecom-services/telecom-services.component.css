@@ -1,106 +1,114 @@
-/* Container for the whole section */
-.telecom-services-container {
-    max-width: 1200px;
-    margin: 100px auto 50px; /* Adjust top margin to account for navbar */
-    padding: 20px;
-    text-align: center;
-    background-color: #f9f9f9;
-  }
-  
-  /* Section title styling */
-  .section-title {
-    color: #3498db;
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  /* Cards container */
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  /* Individual card styling */
-  .card {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    width: 300px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  /* Card hover effect */
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Card title styling */
-  .card-title {
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  /* Card description styling */
-  .card-description {
-    color: #555;
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Card footer: price and button container */
-  .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
-  }
-  
-  /* Price styling */
-  .card-price {
-    color: #3498db;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  /* Buy button styling */
-  .buy-button {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .buy-button:hover {
-    background-color: #2874a6;
-  }
-  
-.button-group {
-  display: flex;
-  gap: 10px; 
+.telecom-services-section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
 }
 
-.button-group .buy-button {
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #3498db;
+  margin-bottom: 40px;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.service-card {
+  background: linear-gradient(145deg, #6dd5ed, #2193b0);
+  border-radius: 16px;
+  padding: 25px 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.2);
+}
+
+.card-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #f0f0f0;
+  flex-grow: 1;
+}
+
+.card-prices {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.monthly-price {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.card-buttons button {
   flex: 1;
-  text-align: center;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.card-buttons button:first-child {
+  background-color: #fff;
+  color: #2193b0;
+}
+
+.card-buttons button:first-child:hover {
+  background-color: #f0f0f0;
+}
+
+.card-buttons button:last-child {
+  background-color: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.card-buttons button:last-child:hover {
+  background-color: rgba(255,255,255,0.35);
+}
+
+@media (max-width: 500px) {
+  .card-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
 }

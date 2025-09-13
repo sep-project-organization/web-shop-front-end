@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/*import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LocalStorageService } from './local-storage.service';
@@ -23,3 +23,4 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(req);
   }
 }
+*/

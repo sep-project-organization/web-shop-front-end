@@ -7,19 +7,20 @@ import { ManagePaymentMethodsComponent } from './manage-payment-methods/manage-p
 import { SuccessComponent } from './success/success.component';
 import { ErrorComponent } from './error/error.component';
 import { FailedComponent } from './failed/failed.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-    {path:'', component: HomepageComponent},
-    {path:'telecom-services', component: TelecomServicesComponent},
-    {path:'login', component: LoginPageComponent},
-    {path:'manage-payment-methods', component: ManagePaymentMethodsComponent},
+    { path: '', component: HomepageComponent, pathMatch: 'full' },
+    { path: 'telecom-services', component: TelecomServicesComponent, canActivate: [AuthGuard] },
+    { path:'login', component: LoginPageComponent},
+    { path:'manage-payment-methods', component: ManagePaymentMethodsComponent},
     { path: 'success', component: SuccessComponent },
     { path: 'failed', component: FailedComponent },
     { path: 'error', component: ErrorComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

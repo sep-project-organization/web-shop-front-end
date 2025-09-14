@@ -7,6 +7,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
 }
 
 .success-container {
@@ -17,6 +18,8 @@ body {
   padding: 20px;  
   height: 100vh;          
   background-color: #f9f9f9;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .success-card {

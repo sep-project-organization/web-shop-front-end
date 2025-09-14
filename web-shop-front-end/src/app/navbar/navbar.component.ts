@@ -28,5 +28,11 @@ export class NavbarComponent {
     return this.localStorageService.getToken() !== null;  
   }
       
-  public homepage() {}
+  homepage(): void {
+    this.router.navigate(['/']);
+  }
+
+  telecomServices(): void {
+    this.router.navigate(['/telecom-services']);
+  }
 }

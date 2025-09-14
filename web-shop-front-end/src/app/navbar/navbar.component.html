@@ -1,12 +1,14 @@
 <nav class="navbar">
     <div class="navbar-container">
       <div class="logo">
-        <img src="assets/img/logo.png" alt="Web Shop Logo" class="logo-image" />
         <h1>Web shop</h1>
       </div>
       <ul class="nav-links">
         <li>
           <button class="nav-links-item" (click)="homepage()">Homepage</button>
+        </li>
+        <li>
+          <button class="nav-links-item" (click)="telecomServices()">Telecom services</button>
         </li>
         <li *ngIf="isLoggedIn()">
           <button class="nav-links-item" (click)="logout()">Logout</button>

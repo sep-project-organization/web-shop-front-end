@@ -4,6 +4,7 @@ import SockJS from 'sockjs-client';
 import { LocalStorageService } from './local-storage.service';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '../env/environment';
+import { KeycloakService } from './keycloak.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,8 @@ export class WebSocketService {
 
   constructor(
     private localStorageService: LocalStorageService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private keycloakService: KeycloakService
   ) {}
 
   connect(): void {
@@ -21,9 +23,10 @@ export class WebSocketService {
 
     this.stompClient = Stomp.over(socket);
 
+    const username = this.keycloakService.getUsername();
+
     this.stompClient.onConnect = () => {
       console.log('Connected to WebSocket');
-      const username = this.localStorageService.getUsernameFromToken();
       if (username) {
         const channel = `/topic/${username}/notifications`;
         console.log(`Subscribing to channel: ${channel}`);
